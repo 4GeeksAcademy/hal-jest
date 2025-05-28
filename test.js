@@ -29,13 +29,6 @@ test("One thousand yens should be 5.56 pounds", () => {
     expect(pounds).toBe(expectedPounds.toFixed(2));
 })
 
-
-const fromYenToPound = function(valueInYen) {
-    let valueInEuro = valueInYen / oneEuroIs.JPY;
-    let valueInPound = valueInEuro * oneEuroIs.;
-    return valueInPound.toFixed(2);
-} 
-
 console.log(fromDollarToYen(1));
 console.log(fromEuroToDollar(1));
 console.log(fromYenToPound(1000));
