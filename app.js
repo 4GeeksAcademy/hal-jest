@@ -2,9 +2,6 @@
     return a + b
 }
 
-const result = sum(7, 3);
-console.log(result);
-
 module.exports = { sum }; */
 
 let oneEuroIs = {
@@ -13,9 +10,14 @@ let oneEuroIs = {
     "GBP": 0.87,
 }
 
+const fromEuroToYen = function(valueInEuro){
+    let yens = valueInEuro * oneEuroIs.JPY;
+    return yens.toFixed(2);
+}
+
 const fromDollarToYen = function(valueInDollar) {
-    let valueInEuro = valueInDollar / oneEuroIs.USD;
-    let valueInYen = valueInEuro * oneEuroIs.JPY;
+    let valueInEuro = oneEuroIs.USD / valueInDollar;
+    let valueInYen = fromEuroToYen(valueInEuro);
     return valueInYen.toFixed(2);
 }
 
@@ -24,9 +26,18 @@ const fromEuroToDollar = function(valueInEuro) {
     return valueInDollar.toFixed(2);
 } 
 
+const fromEuroToPound = function(euros) {
+    let pounds = euros * oneEuroIs.GBP;
+    return pounds.toFixed(2);
+}
+
 const fromYenToPound = function(valueInYen) {
      let valueInEuro = valueInYen / oneEurosIs.JPY;
       let valueInPound = valueInEuro * oneEurosIs.GBP;
     return valueInPound;
 }
+
+
+
+module.export = { fromEuroToYen, fromDollarToYen, fromEuroToDollar, fromEuroToPound, fromYenToPound }
 
